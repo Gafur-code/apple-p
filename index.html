@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple of Fortune</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+        #input-container {
+            margin: 20px 0;
+        }
+        #number-input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #signal-btn {
+            display: none;
+            background-color: #2196F3;
+        }
+        #signal-btn:hover {
+            background-color: #1e88e5;
+        }
+        #message {
+            display: none;
+            color: red;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>APPLE OF FORTUNE</h1>
+    <img src="apple.jpg" alt="Apple Image">
+    <div id="input-container">
+        <input type="text" id="number-input" maxlength="10" placeholder="Введите 10 цифр">
+        <button onclick="checkNumber()">إرسال</button>
+    </div>
+    <button id="signal-btn" onclick="showMessage()">SIGNAL</button>
+    <div id="message">قم بشحن رصيدك على موقع "1xbet"</div>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById('number-input').value;
+            const inputContainer = document.getElementById('input-container');
+            const signalBtn = document.getElementById('signal-btn');
+
+            // Проверяем, что введено 10 цифр
+            if (input.length === 10 && /^\d+$/.test(input)) {
+                const prefix = input.slice(0, 2);
+                // Проверяем, начинается ли число с 12, 13 или 14
+                if (prefix === '12' || prefix === '13' || prefix === '14') {
+                    inputContainer.style.display = 'none'; // Скрываем поле ввода
+                    signalBtn.style.display = 'block'; // Показываем кнопку "Получить сигнал"
+                } else {
+                    alert('أدخل هويتك');
+                }
+            } else {
+                alert('أدخل هويتك');
+            }
+        }
+
+        function showMessage() {
+            const message = document.getElementById('message');
+            message.style.display = 'block'; // Показываем сообщение
+        }
+    </script>
+</body>
+</html>
